@@ -40,6 +40,16 @@ checkarm9:
 
 #---------------------------------------------------------------------------------
 
+install: all
+	@mkdir -p $(DESTDIR)$(DEVKITPRO)/libnds/lib
+	@mkdir -p $(DESTDIR)$(DEVKITPRO)/libnds/include
+	@cp -v lib/* $(DESTDIR)$(DEVKITPRO)/libnds/lib
+	@cp -v include/* $(DESTDIR)$(DEVKITPRO)/libnds/include
+
+uninstall:
+	@rm -v $(DESTDIR)$(DEVKITPRO)/libnds/lib/libcamera*
+	@rm -v $(DESTDIR)$(DEVKITPRO)/libnds/include/libcamera*
+
 clean:
 	@$(MAKE) -C arm9 clean
 	@$(MAKE) -C arm7 clean
